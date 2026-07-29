@@ -81,6 +81,7 @@ export function VehicleStage() {
     >
       <div className="option-grid">
         {options.map((option, index) => {
+          const animatedOption = index < 2;
           const fromCenter = [
             { x: 151, y: 75 },
             { x: -151, y: 75 },
@@ -95,14 +96,22 @@ export function VehicleStage() {
             className={cn("stage-option", selected === option && "selected")}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            initial={{ ...fromCenter, opacity: 0, scale: 0.7 }}
+            initial={
+              animatedOption
+                ? { ...fromCenter, opacity: 0, scale: 0.7 }
+                : false
+            }
             animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 150,
-              damping: 17,
-              delay: 0.22,
-            }}
+            transition={
+              animatedOption
+                ? {
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 17,
+                    delay: 0.22 + index * 0.06,
+                  }
+                : { duration: 0 }
+            }
             onClick={() => setSelected(option)}
           >
             {option}

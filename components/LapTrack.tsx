@@ -12,6 +12,7 @@ export function LapTrack({ active = 3 }: { active?: number }) {
   return (
     <footer className="lap-track">
       <svg
+        className="lap-track-desktop-svg"
         viewBox="0 0 1440 130"
         preserveAspectRatio="none"
         aria-hidden="true"
@@ -40,6 +41,37 @@ export function LapTrack({ active = 3 }: { active?: number }) {
           strokeLinecap="round"
           strokeDasharray="7 7"
           opacity="0.95"
+        />
+      </svg>
+      <svg
+        className="lap-track-phone-svg"
+        viewBox="0 0 400 90"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="phone-track-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7f0005" stopOpacity="0.34" />
+            <stop offset="52%" stopColor="#390003" stopOpacity="0.44" />
+            <stop offset="100%" stopColor="#0b0506" stopOpacity="0.94" />
+          </linearGradient>
+          <linearGradient id="phone-track-line" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#a90005" />
+            <stop offset="50%" stopColor="#ef0a10" />
+            <stop offset="100%" stopColor="#a90005" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0 29 C52 20 92 35 140 27 C190 18 232 31 280 21 C326 12 365 18 400 11 L400 90 L0 90 Z"
+          fill="url(#phone-track-fill)"
+        />
+        <path
+          d="M0 29 C52 20 92 35 140 27 C190 18 232 31 280 21 C326 12 365 18 400 11"
+          fill="none"
+          stroke="url(#phone-track-line)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeDasharray="5 5"
         />
       </svg>
       <div className="lap-items">

@@ -20,14 +20,9 @@ export function Experience() {
   const [view, setView] = useState<ViewName | "chat" | "timeline" | "certifications">("dashboard");
   const [menuOpen, setMenuOpen] = useState(false);
   const [plan, setPlan] = useState<string | null>(null);
-  const [certificateRevealed, setCertificateRevealed] = useState(false);
-
-  useEffect(() => {
-    setCertificateRevealed(false);
-  }, [view]);
 
   return (
-    <main className="experience dark">
+    <main className={cn("experience", `view-${view}`)}>
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <div className="grain" />
@@ -119,56 +114,28 @@ export function Experience() {
           </div>
         </div>
 
-        <AnimatePresence mode="wait" initial>
+        <div
+          className={cn(
+            "stage-atmosphere persistent-stage-atmosphere",
+            (view === "dashboard" || view === "home" || view === "certifications") &&
+              "has-center-focus",
+          )}
+          aria-hidden="true"
+        >
+          {["ring-one", "ring-two", "ring-three", "ring-four"].map((ring) => (
+            <div className={`stage-ring ${ring}`} key={ring} />
+          ))}
+          <div className="spotlight" />
+        </div>
+
+        <AnimatePresence mode="sync" initial={false}>
           <motion.div className="view-transition-layer" key={view}>
             <motion.div
-              className={cn(
-                "stage-atmosphere",
-                view === "certifications" && certificateRevealed && "is-cleared",
-              )}
-              aria-hidden="true"
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.32 }}
-            >
-              {["ring-one", "ring-two", "ring-three"].map((ring, index) => (
-                <motion.div
-                  className={`stage-ring ${ring}`}
-                  key={ring}
-                  initial={{
-                    opacity: 0,
-                    transform: "translate(-50%, -50%) scale(0.12)",
-                  }}
-                  animate={{
-                    opacity: 1,
-                    transform: "translate(-50%, -50%) scale(1)",
-                  }}
-                  exit={{
-                    opacity: 0,
-                    transform: "translate(-50%, -50%) scale(0.12)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 110,
-                    damping: 18,
-                    delay: index * 0.08,
-                  }}
-                />
-              ))}
-              <motion.div
-                className="spotlight"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.38 }}
-              />
-            </motion.div>
-
-            <motion.div
               className="view-shell"
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.26, ease: "easeInOut" }}
+              initial={{ opacity: 0, scale: 0.985, y: 8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 1.015, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               {view === "dashboard" && <VehicleStage />}
               {view === "home" && <HomeStage />}
@@ -178,7 +145,7 @@ export function Experience() {
                 <TimelineStage onGoHome={() => setView("home")} />
               )}
               {view === "certifications" && (
-                <CertificateStage onReveal={() => setCertificateRevealed(true)} />
+                <CertificateStage />
               )}
             </motion.div>
           </motion.div>
@@ -196,6 +163,13 @@ export function Experience() {
 }
 
 function ChatStage() {
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowImage(true), 3180);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <motion.section
       className="chat-stage"
@@ -206,20 +180,78 @@ function ChatStage() {
     >
       <motion.div
         className="chat-spotlight"
-        initial={{ opacity: 0, scaleY: 0 }}
-        animate={{ opacity: 0.5, scaleY: 1 }}
-        exit={{ opacity: 0, scaleY: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ x: "-50%", opacity: 0, scaleY: 0 }}
+        animate={{ x: "-50%", opacity: 0.68, scaleY: 1 }}
+        exit={{ opacity: 0, scaleY: 0.88 }}
+        transition={{
+          duration: 1.05,
+          delay: 0.28,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       />
       <motion.div
-        className="chat-message-card"
-        initial={{ x: "-120vw", y: "-50%", opacity: 0, scale: 0.9 }}
-        animate={{ x: "-50%", y: "-50%", opacity: 1, scale: 1 }}
-        exit={{ x: "-120vw", y: "-50%", opacity: 0, scale: 0.9 }}
-        transition={{ type: "spring", damping: 25, stiffness: 120, delay: 0.08 }}
-      >
-        <img src="/robot_chat.png" alt="Chat assistant" />
-      </motion.div>
+        className="chat-reveal-slab"
+        initial={{ x: "52vw", y: "-50%", opacity: 0 }}
+        animate={{
+          x: ["52vw", "43vw", "-20vw", "-20vw"],
+          y: "-50%",
+          opacity: [0, 1, 1, 0],
+        }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 1.55,
+          delay: 1.42,
+          times: [0, 0.08, 0.7, 1],
+          ease: [0.45, 0, 0.22, 1],
+        }}
+      />
+      <AnimatePresence>
+        {showImage && (
+          <motion.div
+            className="chat-message-card"
+            initial={{
+              x: "-50%",
+              y: "-50%",
+              opacity: 0,
+              scaleX: 0.045,
+              scaleY: 0.98,
+            }}
+            animate={{
+              x: "-50%",
+              y: "-50%",
+              opacity: 1,
+              scaleX: [0.045, 1.1, 0.955, 1.035, 0.99, 1],
+              scaleY: [0.98, 1.015, 0.992, 1.006, 1],
+            }}
+            exit={{ opacity: 0, scaleX: 0.96, scaleY: 1 }}
+            transition={{
+              opacity: { duration: 0.18, ease: "easeOut" },
+              scaleX: {
+                duration: 1.08,
+                times: [0, 0.5, 0.68, 0.82, 0.92, 1],
+                ease: "easeOut",
+              },
+              scaleY: {
+                duration: 1.02,
+                times: [0, 0.5, 0.7, 0.86, 1],
+                ease: "easeOut",
+              },
+            }}
+          >
+            <motion.img
+              src="/robot_chat.png"
+              alt="Chat assistant"
+              initial={{ filter: "blur(22px)", scale: 1.035 }}
+              animate={{ filter: "blur(0px)", scale: 1 }}
+              transition={{
+                duration: 1.05,
+                delay: 0.16,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 }
