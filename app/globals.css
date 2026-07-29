@@ -600,58 +600,60 @@ button {
   }
 
   .persistent-stage-atmosphere .ring-one {
-    width: min(930px, 94vw) !important;
+    width: min(1180px, 120vw) !important;
     border: 0 !important;
     background:
-      radial-gradient(circle, rgba(28, 20, 21, 0.18) 0 82%, rgba(37, 27, 29, 0.16) 89%, rgba(4, 3, 3, 0.28) 100%) !important;
-    box-shadow: 0 0 42px rgba(0, 0, 0, 0.26) !important;
+      radial-gradient(circle, rgba(22, 16, 17, 0.3) 0 76%, rgba(255, 255, 255, 0.2) 80%, rgba(47, 35, 37, 0.2) 84%, rgba(31, 22, 24, 0.14) 100%) !important;
+    box-shadow:
+      inset 0 0 18px rgba(255, 255, 255, 0.025),
+      0 0 40px rgba(255, 255, 255, 0.085) !important;
   }
 
   .persistent-stage-atmosphere .ring-two {
-    width: min(680px, 70.5vw) !important;
+    width: min(880px, 88vw) !important;
     border: 0 !important;
     background:
-      radial-gradient(circle, rgba(35, 25, 27, 0.16) 0 80%, rgba(45, 32, 34, 0.13) 89%, rgba(3, 3, 3, 0.3) 100%) !important;
-    box-shadow: 0 0 36px rgba(0, 0, 0, 0.28) !important;
+      radial-gradient(circle, rgba(26, 18, 20, 0.28) 0 87%, rgba(255, 255, 255, 0.2) 93%, rgba(52, 38, 41, 0.18) 97%, rgba(31, 22, 24, 0.12) 100%) !important;
+    box-shadow: 0 0 38px rgba(255, 255, 255, 0.085) !important;
   }
 
   .persistent-stage-atmosphere .ring-three {
-    width: min(400px, 41vw) !important;
+    width: min(560px, 56vw) !important;
     border: 0 !important;
     background:
-      radial-gradient(circle, rgba(18, 13, 14, 0.34) 0 78%, rgba(34, 24, 26, 0.2) 88%, rgba(2, 2, 2, 0.34) 100%) !important;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) !important;
+      radial-gradient(circle, rgba(17, 12, 13, 0.4) 0 86%, rgba(255, 255, 255, 0.2) 93%, rgba(49, 36, 38, 0.18) 97%, rgba(27, 19, 21, 0.12) 100%) !important;
+    box-shadow: 0 0 36px rgba(255, 255, 255, 0.09) !important;
   }
 
   .persistent-stage-atmosphere .ring-four {
-    width: min(150px, 15vw) !important;
+    width: min(190px, 19vw) !important;
     aspect-ratio: 1;
     border: 0 !important;
     background:
-      radial-gradient(circle, rgba(19, 14, 15, 0.48) 0 72%, rgba(34, 24, 26, 0.22) 88%, rgba(0, 0, 0, 0.4) 100%) !important;
-    box-shadow: 0 0 22px rgba(0, 0, 0, 0.34) !important;
+      radial-gradient(circle, rgba(19, 14, 15, 0.48) 0 82%, rgba(255, 255, 255, 0.2) 93%, rgba(43, 31, 33, 0.18) 97%, rgba(25, 18, 19, 0.13) 100%) !important;
+    box-shadow: 0 0 32px rgba(255, 255, 255, 0.09) !important;
   }
 
   .persistent-stage-atmosphere .spotlight {
     top: 0 !important;
     left: 50% !important;
-    width: min(340px, 36vw) !important;
-    height: 67% !important;
+    width: min(225px, 24vw) !important;
+    height: 61% !important;
     border-radius: 0;
     opacity: 0 !important;
     filter: none !important;
-    clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%) !important;
+    clip-path: polygon(45% 0, 55% 0, 92% 100%, 8% 100%) !important;
     transform: translateX(-50%) !important;
     background:
-      radial-gradient(ellipse 52% 28% at 50% 80%, rgba(255, 255, 255, 0.2), rgba(177, 139, 142, 0.065) 46%, transparent 76%),
-      linear-gradient(90deg, transparent 28%, rgba(255, 255, 255, 0.035) 40%, rgba(255, 255, 255, 0.18) 49%, rgba(255, 255, 255, 0.18) 51%, rgba(255, 255, 255, 0.035) 60%, transparent 72%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.55) 86%, transparent 100%) !important;
-    mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.55) 86%, transparent 100%) !important;
+      radial-gradient(ellipse 45% 24% at 50% 82%, rgba(255, 255, 255, 0.14), rgba(177, 139, 142, 0.038) 46%, transparent 74%),
+      linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.02) 42%, rgba(255, 255, 255, 0.115) 49%, rgba(255, 255, 255, 0.115) 51%, rgba(255, 255, 255, 0.02) 58%, transparent 70%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, #000 58%, rgba(0, 0, 0, 0.48) 84%, transparent 100%) !important;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, #000 58%, rgba(0, 0, 0, 0.48) 84%, transparent 100%) !important;
     transition: opacity 420ms ease;
   }
 
   .persistent-stage-atmosphere.has-center-focus .spotlight {
-    opacity: 0.94 !important;
+    opacity: 0.72 !important;
   }
 
   .view-transition-layer {
@@ -1915,15 +1917,17 @@ button {
   top: 50%;
   left: 50%;
   display: grid;
-  width: min(930px, 94vw);
+  width: min(1180px, 120vw);
   aspect-ratio: 1;
   place-items: center;
   transform: translate(-50%, -50%);
   border: 0;
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(28, 20, 21, 0.18) 0 82%, rgba(37, 27, 29, 0.16) 89%, rgba(4, 3, 3, 0.28) 100%);
-  box-shadow: 0 0 42px rgba(0, 0, 0, 0.26);
+    radial-gradient(circle, rgba(22, 16, 17, 0.3) 0 76%, rgba(255, 255, 255, 0.12) 80%, rgba(47, 35, 37, 0.2) 84%, rgba(31, 22, 24, 0.14) 100%);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.025),
+    0 0 32px rgba(255, 255, 255, 0.05);
   pointer-events: none;
 }
 
@@ -1932,29 +1936,29 @@ button {
   border: 0;
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(35, 25, 27, 0.16) 0 80%, rgba(45, 32, 34, 0.13) 89%, rgba(3, 3, 3, 0.3) 100%);
-  box-shadow: 0 0 36px rgba(0, 0, 0, 0.28);
+    radial-gradient(circle, rgba(26, 18, 20, 0.28) 0 87%, rgba(255, 255, 255, 0.12) 93%, rgba(52, 38, 41, 0.18) 97%, rgba(31, 22, 24, 0.12) 100%);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
 }
 
 .certificate-popup-background span:nth-child(1) {
-  width: 73%;
+  width: 74%;
   aspect-ratio: 1;
 }
 
 .certificate-popup-background span:nth-child(2) {
-  width: 43%;
+  width: 47%;
   aspect-ratio: 1;
   background:
-    radial-gradient(circle, rgba(18, 13, 14, 0.34) 0 78%, rgba(34, 24, 26, 0.2) 88%, rgba(2, 2, 2, 0.34) 100%);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    radial-gradient(circle, rgba(17, 12, 13, 0.4) 0 86%, rgba(255, 255, 255, 0.12) 93%, rgba(49, 36, 38, 0.18) 97%, rgba(27, 19, 21, 0.12) 100%);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.052);
 }
 
 .certificate-popup-background span:nth-child(3) {
   width: 16%;
   aspect-ratio: 1;
   background:
-    radial-gradient(circle, rgba(19, 14, 15, 0.48) 0 72%, rgba(34, 24, 26, 0.22) 88%, rgba(0, 0, 0, 0.4) 100%);
-  box-shadow: 0 0 22px rgba(0, 0, 0, 0.34);
+    radial-gradient(circle, rgba(19, 14, 15, 0.48) 0 82%, rgba(255, 255, 255, 0.12) 93%, rgba(43, 31, 33, 0.18) 97%, rgba(25, 18, 19, 0.13) 100%);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.052);
 }
 
 .certificate-popup-background::before {
@@ -1963,15 +1967,16 @@ button {
   z-index: 0;
   top: -3%;
   left: 50%;
-  width: min(340px, 36vw);
-  height: 52%;
+  width: min(225px, 24vw);
+  height: 48%;
   transform: translateX(-50%);
   background:
-    radial-gradient(ellipse 52% 28% at 50% 80%, rgba(255, 255, 255, 0.2), rgba(177, 139, 142, 0.065) 46%, transparent 76%),
-    linear-gradient(90deg, transparent 28%, rgba(255, 255, 255, 0.035) 40%, rgba(255, 255, 255, 0.18) 49%, rgba(255, 255, 255, 0.18) 51%, rgba(255, 255, 255, 0.035) 60%, transparent 72%);
-  clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.55) 86%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.55) 86%, transparent 100%);
+    radial-gradient(ellipse 45% 24% at 50% 82%, rgba(255, 255, 255, 0.14), rgba(177, 139, 142, 0.038) 46%, transparent 74%),
+    linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.02) 42%, rgba(255, 255, 255, 0.115) 49%, rgba(255, 255, 255, 0.115) 51%, rgba(255, 255, 255, 0.02) 58%, transparent 70%);
+  clip-path: polygon(45% 0, 55% 0, 92% 100%, 8% 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), #000 58%, rgba(0, 0, 0, 0.48) 84%, transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), #000 58%, rgba(0, 0, 0, 0.48) 84%, transparent);
+  opacity: 0.72;
 }
 
 .certificate-orbit {
